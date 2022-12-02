@@ -1,0 +1,29 @@
+{
+	"comments": {
+		"lineComment": "//",
+		"blockComment": [ "/*", "*/" ]
+	},
+	"brackets": [
+		["{", "}"],
+		["[", "]"],
+		["(", ")"]
+	],
+	"autoClosingPairs": [
+		{"open":"(", "close":")"},
+		{"open":"[", "close":"]"},
+		{"open":"{", "close":"}"},
+		{"open":"\"", "close":"\"", "notIn":["string"]}
+	],
+    "surroundingPairs": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"]
+    ],
+	"folding": {
+		"offSide": true,
+		"markers": {
+			"start": "^\\b(FOR|FOREVER|FUNCTION|MODULE|IF|LOOP|WHILE|begin|case|casex|casez|config|fork|function|generate|macromodule|module|primitive|specify|table|task)\\b",
+			"end": "^\\b(END|end|endcase|endconfig|endfunction|endgenerate|endmodule|endprimitive|endspecify|endtable|endtask)\\b"
+		}
+	}
+}

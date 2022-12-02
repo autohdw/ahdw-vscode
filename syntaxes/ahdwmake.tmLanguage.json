@@ -1,0 +1,107 @@
+{
+  "information_for_contributors": [
+    "AHDWmake grammar support. Visit ahdw.org for more information."
+  ],
+  "name": "AHDWmake",
+  "scopeName": "source.ahdwmake",
+  "fileTypes": [ "AHDWmake.txt", "AHDWmake", "ahdwmake.txt", "ahdwmake" ],
+  "patterns": [
+    {
+      "include": "#comment"
+    },
+    {
+      "include": "#string"
+    },
+    {
+      "include": "#variable"
+    },
+    {
+      "include": "#constant"
+    }
+  ],
+  "repository": {
+    "comment": {
+      "begin": "(^\\s+)?(?<=^|\\W)(?<!-)(?=#)(?!#{)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.whitespace.comment.leading.ahdwmake"
+        }
+      },
+      "end": "(?!\\G)",
+      "patterns": [
+        {
+          "begin": "#!",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.shebang.ahdwmake"
+            }
+          },
+          "end": "$",
+          "name": "comment.line.number-sign.shebang.ahdwmake"
+        },
+        {
+          "begin": "#",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.ahdwmake"
+            }
+          },
+          "end": "$",
+          "name": "comment.line.number-sign.ahdwmake"
+        }
+      ]
+    },
+    "variable": {
+      "patterns": [
+        {
+          "match": "(?<=((project|set|param|include|add_subdirectory|if)([\\n\\r\\s]+|)\\())([\\n\\r\\s]+|)[a-zA-Z0-9_]+",
+          "name": "variable.other.normal.ahdw"
+        },
+        {
+          "match": "(?<=((VERSION|MIN|MAX|STEP|(UNSIGNED DEFAULT))([\\n\\r\\s]+)))([\\n\\r\\s]+|)[0-9.Ee+]+",
+          "name": "constant.numeric.other.ahdwmake"
+        }
+      ]
+    },
+    "string": {
+      "patterns": [
+        {
+          "match": "\"(.*?)\"",
+          "name": "string.quoted.binary.ahdwmake"
+        },
+        {
+          "match": "'(.*?)'",
+          "name": "string.quoted.single.ahdwmake"
+        },
+        {
+          "match": "(?<=(COMMENT)).*",
+          "name": "string.quoted.binary.ahdwmake"
+        },
+        {
+          "match": "\\`(.*?)\\`",
+          "name": "keyword.other.ahdwmake"
+        }
+      ]
+    },
+    "constant": {
+      "patterns": [
+        {
+          "match": "\\b(true|false|TRUE|FALSE|STRING|INT|UNSIGNED|FLOAT)\\b",
+          "name": "keyword.other.ahdwmake"
+        },
+        {
+          "match": "\\b(if|endif|else|elseif)\\b",
+          "name": "keyword.control.ahdwmake"
+        },
+        {
+          "match": "\\b(ahdw_minimum_required|project|set|param|include|add_subdirectory|message)\\b",
+          "name": "support.function.builtin.ahdwmake"
+        },
+        {
+          "match": "\\b(VERSION|TYPE|DEFAULT|MIN|MAX|STEP|PATTERN|REQUIRED)\\b",
+          "name": "support.class.ahdwmake"
+        }
+      ]
+    }
+  }
+}

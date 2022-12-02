@@ -1,0 +1,15 @@
+ahdw_minimum_required(VERSION 0.1.0)
+project(example1 VERSION 0.1.0)
+
+set(variable TRUE)
+
+# Set Parameters
+param(key1 TYPE STRING DEFAULT "default value")
+param(key2 TYPE INT REQUIRED)
+param(key3 TYPE UNSIGNED DEFAULT 4 MIN 2 MAX 8 STEP 2)
+param(key4 TYPE UNSIGNED DEFAULT 4 PATTERN "(2|4|8|16)")
+
+if(variable)
+    # do something here
+    message("AHDW is powerful!")
+endif()

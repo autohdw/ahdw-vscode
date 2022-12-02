@@ -1,0 +1,100 @@
+{
+  "name": "ahdw",
+  "displayName": "AHDW",
+  "description": "AHDW Language Support",
+  "icon": "icons/AutoHDW_logo_256.png",
+  "publisher": "Teddy-van-Jerry",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.73.0"
+  },
+  "author": {
+		"name": "Wuqiong Zhao",
+		"email": "me@wqzhao.org",
+		"url": "https://wqzhao.org"
+	},
+  "categories": [
+    "Programming Languages",
+    "Debuggers"
+  ],
+  "activationEvents": [
+    "onCommand:ahdw.viewAuthor"
+  ],
+  "license": "MIT License",
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/autohdw/ahdw-vscode"
+	},
+  "extensionDependencies": [
+    "mshr-h.veriloghdl"
+  ],
+  "main": "./out/extension.js",
+  "browser": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ahdw.viewAuthor",
+        "title": "AHDW Author"
+      }
+    ],
+    "languages": [
+      {
+        "id": "ahdw",
+        "aliases": [
+          "AHDW"
+        ],
+        "extensions": [
+          ".ahdw",
+          ".autohdw"
+        ],
+        "configuration": "./ahdw-configuration.json"
+      },
+      {
+        "id": "ahdwmake",
+        "aliases": [
+          "AHDWmake"
+        ],
+        "filenames": [
+          "AHDWmake.txt",
+          "AHDWmake",
+          "ahdwmake.txt",
+          "ahdwmake"
+        ],
+        "configuration": "./ahdwmake-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "ahdw",
+        "scopeName": "source.ahdw",
+        "path": "./syntaxes/ahdw.tmLanguage.json"
+      },
+      {
+        "language": "ahdwmake",
+        "scopeName": "source.ahdwmake",
+        "path": "./syntaxes/ahdwmake.tmLanguage.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.73.0",
+    "@types/glob": "^7.1.4",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "14.x",
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
+    "eslint": "^8.1.0",
+    "glob": "^7.1.7",
+    "mocha": "^9.1.3",
+    "typescript": "^4.4.4",
+    "@vscode/test-electron": "^1.6.2"
+  }
+}

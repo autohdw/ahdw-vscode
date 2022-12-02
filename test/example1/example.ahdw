@@ -1,0 +1,44 @@
+/**
+ * Example File
+ *
+ * Here it is block comment.
+ */
+
+`timescale 1ns/1ps
+module module_{{a*2}}_foo #(
+    parameter param=8 // comment
+  )(
+    input [3:0] in_1,
+    input signed in_2,
+    output out
+  );
+
+  reg signed [data_width:0] rst;
+  assign res = rst;
+
+  LOOP 0 10 step=1
+    V assign a = b_{{i}};
+  END
+
+  COMMENT This is a comment!
+
+  hello_{{123}} = INST hello port=abc
+
+  hello = MODULE
+    n = WIRE 2
+  END
+
+  always @(posedge clk, negedge rst_n)
+  begin
+    if (!rst_n) begin
+      rst <= 'b0;
+    end
+    else if (en) begin
+      rst <= in_1;
+    end  
+    else begin
+      // do nothing
+    end          
+  end
+
+endmodule
