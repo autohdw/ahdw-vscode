@@ -3,11 +3,24 @@ project(example1 VERSION 0.1.0)
 
 set(variable TRUE)
 
+# set project AHDW source files
+source(example.ahdw)
+# set required IP files (.ahdw can be ignored)
+ip(m2v)
+
+set(AHDW_GEN_PREFIX ${AHDW_SOURCE_DIR}/example)
+
 # Set Parameters
 param(key1 TYPE STRING DEFAULT "default value")
 param(key2 TYPE INT REQUIRED)
 param(key3 TYPE UNSIGNED DEFAULT 4 MIN 2 MAX 8 STEP 2)
-param(key4 TYPE UNSIGNED DEFAULT 4 PATTERN "(2|4|8|16)")
+param(key4
+    TYPE UNSIGNED
+    DEFAULT 4
+    PATTERN "(2|4|8|16)"
+)
+
+alias(key3*2 IP m2v KEY m_size)
 
 if(variable)
     # do something here

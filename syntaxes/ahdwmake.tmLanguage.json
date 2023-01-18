@@ -13,10 +13,10 @@
       "include": "#string"
     },
     {
-      "include": "#variable"
+      "include": "#constant"
     },
     {
-      "include": "#constant"
+      "include": "#variable"
     }
   ],
   "repository": {
@@ -58,8 +58,20 @@
           "name": "variable.other.normal.ahdw"
         },
         {
-          "match": "(?<=((VERSION|MIN|MAX|STEP|(UNSIGNED DEFAULT))([\\n\\r\\s]+)))([\\n\\r\\s]+|)[0-9.Ee+]+",
+          "match": "(?<=(alias([\\n\\r\\s]+|)\\())([\\n\\r\\s]+|)[\\w+*-/%]+",
+          "name": "variable.other.normal.ahdw"
+        },
+        {
+          "match": "(?<=((VERSION|MIN|MAX|STEP|((UNSIGNED|INT)[\\s\\n\\r]+DEFAULT))([\\n\\r\\s]+)))([\\n\\r\\s]+|)[0-9.Ee+]+",
           "name": "constant.numeric.other.ahdwmake"
+        },
+        {
+          "match": "(?<=((FILE|SOURCE|IP)([\\n\\r\\s]+)))([\\n\\r\\s]+|)\\w+",
+          "name": "string.quoted.binary.ahdwmake"
+        },
+        {
+          "match": "(?<=((KEY)([\\n\\r\\s]+)))([\\n\\r\\s]+|)\\w+",
+          "name": "variable.other.normal.ahdw"
         }
       ]
     },
@@ -94,12 +106,20 @@
           "name": "keyword.control.ahdwmake"
         },
         {
-          "match": "\\b(ahdw_minimum_required|project|set|param|include|add_subdirectory|message)\\b",
+          "match": "\\b(ahdw_minimum_required|project|set|param|include|add_subdirectory|message|source|alias|ip)\\b",
           "name": "support.function.builtin.ahdwmake"
         },
         {
-          "match": "\\b(VERSION|TYPE|DEFAULT|MIN|MAX|STEP|PATTERN|REQUIRED)\\b",
+          "match": "\\b(VERSION|TYPE|DEFAULT|MIN|MAX|STEP|PATTERN|REQUIRED|FILE|KEY|SOURCE|IP)\\b",
           "name": "support.class.ahdwmake"
+        },
+        {
+          "match": "\\${\\s*\\w+\\s*}",
+          "name": "keyword.other.ahdwmake"
+        },
+        {
+          "match": "\\bAHDW_\\w+\\b",
+          "name": "variable.other.constant.ahdwmake"
         }
       ]
     }

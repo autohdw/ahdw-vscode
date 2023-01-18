@@ -1,3 +1,5 @@
+FILE name="file name example_{{ (round(key2 / 2) + 2) % 5 }}_{{key1}}" // This is a comment
+
 /**
  * Example File
  *
@@ -5,7 +7,7 @@
  */
 
 `timescale 1ns/1ps
-module module_{{a*2}}_foo #(
+module module_{{key2*2}}_foo #(
     parameter param=8 // comment
   )(
     input [3:0] in_1,
