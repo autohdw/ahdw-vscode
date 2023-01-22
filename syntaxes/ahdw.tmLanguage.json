@@ -181,7 +181,7 @@
     "keywords": {
       "patterns": [
         {
-          "match": "\\b(CALC|COMMENT|END|FILE|INCLUDE|INPUT|INST|NEW|OUTPUT|LOOP|META|MODULE|PARAM|PORT|REG|V|WIRE)\\b",
+          "match": "\\b(BREAK|CALC|COMMENT|CONTINUE|EL(SE|IF)|END|FILE|FOR(EVER|)|IF|INCLUDE|INPUT|INST|NEW|OUTPUT|LOOP|META|MODULE|PARAM|PORT|REG|V|WIRE)\\b",
           "name": "keyword.control.ahdw"
         },
         {
