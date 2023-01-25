@@ -114,7 +114,7 @@
           "name": "support.class.ahdwmake"
         },
         {
-          "match": "\\${\\s*\\w+\\s*}",
+          "match": "\\$\\{(([^\\}]+)|)\\}",
           "name": "keyword.other.ahdwmake"
         },
         {
