@@ -106,7 +106,7 @@
           "name": "keyword.control.ahdwmake"
         },
         {
-          "match": "\\b(ahdw_minimum_required|project|set|param|include|add_subdirectory|message|source|alias|ip)\\b",
+          "match": "\\b(ahdw_minimum_required|project|set|param|include|add_subdirectory|message|source|alias|ip|ip_directories)\\b",
           "name": "support.function.builtin.ahdwmake"
         },
         {
