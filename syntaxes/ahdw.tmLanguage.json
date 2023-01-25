@@ -145,10 +145,16 @@
               "include": "#comments"
             },
             {
+              "include": "#keywords"
+            },
+            {
               "include": "#constants"
             },
             {
               "include": "#strings"
+            },
+            {
+              "include": "#operators"
             }
           ]
         },
@@ -181,8 +187,105 @@
     "keywords": {
       "patterns": [
         {
-          "match": "\\b(BREAK|CALC|COMMENT|COND|CONTINUE|EL(SE|IF)|END|FILE|FOR(EVER|)|IF|INCLUDE|INPUT|INST|NEW|OUTPUT|LOOP|META|MODULE|PARAM|PORT|REG|V(I|)|WIRE)\\b",
-          "name": "keyword.control.ahdw"
+          "begin": "\\b(BREAK|COMMENT|V(I|)|IF|WHILE|EL(SE|IF)|END|FOREVER)\\b",
+          "end": "\\n",
+          "beginCaptures": {
+            "0": {
+              "name": "keyword.control.ahdw"
+            }
+          },
+          "patterns":[
+            {
+              "begin": "\\{\\{",
+              "end": "\\}\\}",
+              "beginCaptures": {
+                "0": {
+                  "name": "keyword.other.replace.ahdw"
+                }
+              },
+              "endCaptures": {
+                "0": {
+                  "name": "keyword.other.replace.ahdw"
+                }
+              },
+              "name": "variable.other.constant.ahdw"
+            },
+            {
+              "include": "#comments"
+            },
+            {
+              "include": "#constants"
+            },
+            {
+              "include": "#strings"
+            },
+            {
+              "include": "#keywords"
+            }
+          ]
+        },
+        {
+          "begin": "\\bLOOP\\b",
+          "end": "\\n",
+          "beginCaptures": {
+            "0": {
+              "name": "keyword.control.ahdw"
+            }
+          },
+          "patterns":[
+            {
+              "begin": "\\/\\/",
+              "end": "[\\w\\s](?=\\n)",
+              "name": "comment.line.double-slash.ahdw"
+            },
+            {
+              "match": "(begin|end|from|to|step)(?=\\=)",
+              "name": "support.function.builtin.key.loop.ahdw"
+            },
+            {
+              "match": "[-\\=+*/]",
+              "name": "keyword.operator.loop.ahdw"
+            },
+            {
+              "match": "\\{\\{(([^\\}]+)|)\\}\\}",
+              "name": "variable.other.constant.ahdw"
+            },
+            {
+              "include": "#constants"
+            },
+            {
+              "include": "#strings"
+            }
+          ],
+          "name": "variable.other.normal.return.ahdw"
+        },
+        {
+          "begin": "\\b(CALC|COND|CONTINUE|FILE|FOR|INCLUDE|INPUT|INST|NEW|OUTPUT|META|MODULE|PARAM|PORT|REG|WIRE)\\b",
+          "end": "\\n",
+          "beginCaptures": {
+            "0": {
+              "name": "keyword.control.ahdw"
+            }
+          },
+          "patterns":[
+            {
+              "match": "\\{\\{(([^\\}]+)|)\\}\\}",
+              "name": "variable.other.constant.ahdw"
+            },
+            {
+              "include": "#comments"
+            },
+            {
+              "include": "#constants"
+            },
+            {
+              "include": "#strings"
+            }
+          ]
+        },
+        {
+          "match": "^\\s*\\w+(?=\\s*\\=\\s*(NEW|CALC|LOOP))",
+          "name": "variable.other.normal.return.ahdw"
         },
         {
           "match": "(([a-zA-Z0-9_{}]|((?<!{){{[^{}]+}}(?!})))+)(?=((\\s+|)=(\\s+|)MODULE))",
@@ -259,9 +362,6 @@
               "include": "#strings"
             },
             {
-              "include": "#instantiation_patterns"
-            },
-            {
               "include": "#operators"
             }
           ]
@@ -293,9 +393,6 @@
           },
           "name": "meta.block.parenthetical_list.verilog.ahdw",
           "patterns": [
-            {
-              "include": "#parenthetical_list"
-            },
             {
               "include": "#comments"
             },
