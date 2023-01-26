@@ -110,7 +110,7 @@
           "name": "support.function.builtin.ahdwmake"
         },
         {
-          "match": "\\b(VERSION|TYPE|DEFAULT|MIN|MAX|STEP|PATTERN|REQUIRED|FILE|KEY|SOURCE|IP)\\b",
+          "match": "\\b(VERSION|TYPE|DEFAULT|MIN|MAX|STEP|PATTERN|REQUIRED|FILE|KEY|VALUE|SOURCE|IP)\\b",
           "name": "support.class.ahdwmake"
         },
         {

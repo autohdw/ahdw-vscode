@@ -2,6 +2,10 @@
 
 All notable changes to the "ahdw" extension are documented in this file.
 
+## [0.0.5] - 2023-01-26
+### Added
+- Update AHDWmake `ip` highlighting rule
+
 ## [0.0.4] - 2023-01-26
 ### Fixed
 - Fix AHDWmake Variable highlighting, for example `${ x * 2 }`

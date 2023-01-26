@@ -6,7 +6,6 @@ set(variable TRUE)
 # set project AHDW source files
 source(example.ahdw)
 # set required IP files (.ahdw can be ignored)
-ip(m2v)
 
 set(AHDW_GEN_PREFIX ${AHDW_SOURCE_DIR}/example)
 
@@ -20,7 +19,7 @@ param(key4
     PATTERN "(2|4|8|16)"
 )
 
-alias(key3*2 IP m2v KEY m_size)
+ip(m2v KEY m_size VALUE ${ 2 * key3 })
 
 if(variable)
     # do something here
