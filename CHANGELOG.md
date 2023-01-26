@@ -2,6 +2,10 @@
 
 All notable changes to the "ahdw" extension are documented in this file.
 
+## [0.0.4] - 2023-01-26
+### Fixed
+- Fix AHDWmake Variable highlighting, for example `${ x * 2 }`
+
 ## [0.0.3] - 2023-01-25
 ### Added
 - Add `LOOP` inline key value highlighting
