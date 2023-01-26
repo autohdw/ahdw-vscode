@@ -234,8 +234,12 @@
           },
           "patterns":[
             {
+              "match": "\\/\\/(?=\\n)",
+              "name": "comment.line.double-slash.ahdw"
+            },
+            {
               "begin": "\\/\\/",
-              "end": "[\\w\\s](?=\\n)",
+              "end": ".(?=\\n)",
               "name": "comment.line.double-slash.ahdw"
             },
             {
@@ -269,8 +273,12 @@
           },
           "patterns":[
             {
+              "match": "\\/\\/(?=\\n)",
+              "name": "comment.line.double-slash.ahdw"
+            },
+            {
               "begin": "\\/\\/",
-              "end": "[\\w\\s](?=\\n)",
+              "end": ".(?=\\n)",
               "name": "comment.line.double-slash.ahdw"
             },
             {

@@ -2,6 +2,10 @@
 
 All notable changes to the "ahdw" extension are documented in this file.
 
+## [0.0.7] - 2023-01-26
+### Fixed
+- Further fix AHDW comments' interference with the next line
+
 ## [0.0.6] - 2023-01-26
 ### Fixed
 - Fix AHDW comments' interference with the next line (for example `NEW`)
