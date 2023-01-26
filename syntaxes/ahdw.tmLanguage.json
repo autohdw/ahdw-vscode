@@ -269,11 +269,13 @@
           },
           "patterns":[
             {
-              "match": "\\{\\{(([^\\}]+)|)\\}\\}",
-              "name": "variable.other.constant.ahdw"
+              "begin": "\\/\\/",
+              "end": "[\\w\\s](?=\\n)",
+              "name": "comment.line.double-slash.ahdw"
             },
             {
-              "include": "#comments"
+              "match": "\\{\\{(([^\\}]+)|)\\}\\}",
+              "name": "variable.other.constant.ahdw"
             },
             {
               "include": "#constants"
